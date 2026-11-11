@@ -1,0 +1,9 @@
+routing:
+  tier1: claude-haiku
+  tier2: gpt-4o-mini
+  tier3: gpt-4o
+baseline_model: gpt-4o
+verification:
+  sample_rate: 0.25
+  agreement_threshold: 0.55
+  auto_escalate: true

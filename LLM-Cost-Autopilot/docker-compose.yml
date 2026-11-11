@@ -1,0 +1,20 @@
+services:
+  autopilot:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./data:/app/data
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+
+volumes:
+  ollama_models:

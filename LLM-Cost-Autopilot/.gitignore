@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+autopilot.db
+data/feedback.jsonl
+data/classifier_weights.json
+.env
