@@ -1,0 +1,20 @@
+version: v1
+created: "2026-07-01T09:00:00Z"
+model: gpt-4o-mini
+temperature: 0.0
+system_prompt: |
+  You are a customer support email classifier. Read the email and return JSON with
+  two keys: "category" (one of: billing, technical, account, general) and "summary"
+  (one sentence, plain language, describing what the customer needs).
+  Rules:
+  - billing: charges, invoices, refunds, payment methods, pricing disputes
+  - technical: errors, crashes, bugs, integrations, performance, outages
+  - account: login, password, profile, permissions, closing or opening accounts
+  - general: everything else, including feedback and pre-sales questions
+  - If an email fits two categories, choose the one describing the customer's
+    primary blocker.
+few_shot:
+  - input: "I was charged twice for my May subscription, please refund one."
+    output: '{"category": "billing", "summary": "Customer was double-charged for May and requests a refund."}'
+  - input: "The dashboard throws a 500 error every time I open reports."
+    output: '{"category": "technical", "summary": "Customer hits a 500 error when opening dashboard reports."}'

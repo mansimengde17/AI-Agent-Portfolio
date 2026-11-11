@@ -1,0 +1,11 @@
+version: v2
+created: "2026-07-03T10:30:00Z"
+model: gpt-4o-mini
+temperature: 0.0
+commit_message: >
+  Shortened the system prompt to cut tokens. Removed the tie-breaking rule and
+  the category definitions on the assumption that the model no longer needs them.
+system_prompt: |
+  Classify the customer email into billing, technical, account, or general and
+  return JSON: {"category": ..., "summary": ...}. Keep the summary to one sentence.
+few_shot: []

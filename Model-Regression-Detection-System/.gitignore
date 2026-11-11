@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+reports/
+eval_history.db
+runs/
+.env

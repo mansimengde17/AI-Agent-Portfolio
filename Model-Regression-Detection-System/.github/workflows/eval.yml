@@ -1,0 +1,31 @@
+name: Prompt regression eval
+
+on:
+  pull_request:
+    paths:
+      - "prompts/**"
+      - "data/golden_dataset.json"
+      - "src/**"
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Establish baseline (previous prompt version)
+        run: python run_eval.py --prompt prompts/classifier_v1.yaml
+      - name: Evaluate candidate prompt
+        id: candidate
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python run_eval.py --prompt prompts/classifier_v2.yaml --alert
+      - name: Upload diff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-diff-report
+          path: reports/latest.html
