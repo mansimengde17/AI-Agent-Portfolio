@@ -1,0 +1,16 @@
+{
+  "cases": [
+    {"id": "q1", "question": "What error code is returned when the API key is missing?", "answer_terms": ["e1001"], "answerable": true, "kind": "lookup"},
+    {"id": "q2", "question": "How long does the old key stay valid after rotate_key is called?", "answer_terms": ["24", "grace"], "answerable": true, "kind": "lookup"},
+    {"id": "q3", "question": "What is the default value of MAX_CONCURRENCY?", "answer_terms": ["64"], "answerable": true, "kind": "exact-identifier"},
+    {"id": "q4", "question": "What happens to deploys during a severity 1 incident?", "answer_terms": ["frozen", "freeze"], "answerable": true, "kind": "lookup"},
+    {"id": "q5", "question": "How much traffic does the canary stage receive and for how long?", "answer_terms": ["5", "30"], "answerable": true, "kind": "multi-fact"},
+    {"id": "q6", "question": "What error and HTTP status do you get when exceeding the rate limit?", "answer_terms": ["429", "e2001"], "answerable": true, "kind": "multi-hop"},
+    {"id": "q7", "question": "How many API calls per month does the Growth plan include?", "answer_terms": ["2", "million"], "answerable": true, "kind": "lookup"},
+    {"id": "q8", "question": "At what usage thresholds do quota alerts fire?", "answer_terms": ["80", "100"], "answerable": true, "kind": "lookup"},
+    {"id": "q9", "question": "How long are OAuth service account tokens valid?", "answer_terms": ["3600"], "answerable": true, "kind": "lookup"},
+    {"id": "q10", "question": "What is the on-call rotation schedule for the data team?", "answer_terms": [], "answerable": false, "kind": "no-answer"},
+    {"id": "q11", "question": "Which SSO providers are supported for login?", "answer_terms": [], "answerable": false, "kind": "no-answer"},
+    {"id": "q12", "question": "What does error E1004 mean?", "answer_terms": ["allowlist", "ip"], "answerable": true, "kind": "exact-identifier"}
+  ]
+}
