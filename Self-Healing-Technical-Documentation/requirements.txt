@@ -1,0 +1,3 @@
+# Standard library only for the offline core. Optional extras:
+# openai>=1.30        for LLM-backed staleness verification
+# PyGithub>=2.3       for PR comment and auto-fix PR creation

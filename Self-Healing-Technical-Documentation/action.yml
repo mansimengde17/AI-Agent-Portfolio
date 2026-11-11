@@ -1,0 +1,32 @@
+name: "Self-Healing Technical Documentation"
+description: >
+  Detects documentation made stale by code changes in a pull request,
+  auto-fixes mechanical staleness, and flags behavioral changes for review.
+author: "mansimengde17"
+
+inputs:
+  openai_api_key:
+    description: "API key for LLM-backed staleness verification (optional; offline checks run without it)"
+    required: false
+  confidence_threshold:
+    description: "Minimum confidence for auto-fix mode"
+    required: false
+    default: "0.8"
+  docs_path:
+    description: "Path to the documentation directory"
+    required: false
+    default: "docs/"
+
+outputs:
+  stale_sections:
+    description: "Number of stale doc sections found"
+  auto_fixed:
+    description: "Number of sections auto-fixed"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    OPENAI_API_KEY: ${{ inputs.openai_api_key }}
+    CONFIDENCE_THRESHOLD: ${{ inputs.confidence_threshold }}
+    DOCS_PATH: ${{ inputs.docs_path }}
